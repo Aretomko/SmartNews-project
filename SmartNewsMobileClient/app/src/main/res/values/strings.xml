@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">SmartNews</string>
+    <string name="login_button">
+        <b>Submit</b>
+    </string>
 </resources>

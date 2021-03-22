@@ -14,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public LoginServiceOuterClass.LoginResponse getUserExample(){
+
         ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8081").usePlaintext().build();
 
         LoginServiceGrpc.LoginServiceBlockingStub stub = LoginServiceGrpc.newBlockingStub(channel);
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         channel.shutdownNow();
 
+        return response;
     }
 
 }
