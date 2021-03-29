@@ -1,25 +1,15 @@
-package com.example.smartnews;
+package com.example.application.dataProviders;
 
-import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
 import com.thinhda.spring.grpc.core.model.LoginRequest;
 import com.thinhda.spring.grpc.core.model.LoginResponse;
 import com.thinhda.spring.grpc.core.model.LoginServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import org.springframework.stereotype.Service;
 
-public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        LoginResponse response = getUserExample();
-    }
-
-    public LoginResponse getUserExample(){
-
+@Service
+public class UserDataProvider{
+    public String authenticate(String username, String password){
         ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:6790").usePlaintext().build();
 
         LoginServiceGrpc.LoginServiceBlockingStub stub = LoginServiceGrpc.newBlockingStub(channel);
@@ -28,12 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
         LoginResponse response = stub.login(request);
 
-        TextView textView = (TextView) findViewById(R.id.text);
-
-        textView.setText(response.getToken());
-
         channel.shutdownNow();
 
-        return response;
+        return response.getToken();
     }
 }

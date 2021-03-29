@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+// options for Java generated sources
+option java_multiple_files = true;
+option java_package = "com.thinhda.spring.grpc.core.model";
+
+
+package sms.core;
+
+message LoginRequest{
+  string username = 1;
+  string password = 2;
+}
+
+message LoginResponse{
+  string token = 1;
+}
+
+//login service receives request that contains username and password and returns response with token,
+// you should save token to the android session, you should add this token to each request, otherwise you will get 403 unauthenticated
+service LoginService{
+  rpc login (LoginRequest) returns (LoginResponse);
+}

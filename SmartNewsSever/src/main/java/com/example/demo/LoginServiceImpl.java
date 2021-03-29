@@ -16,5 +16,6 @@ public class LoginServiceImpl extends LoginServiceGrpc.LoginServiceImplBase {
         com.example.grpc.LoginServiceOuterClass.LoginResponse response = com.example.grpc.LoginServiceOuterClass.LoginResponse
                 .newBuilder().setToken(UUID.randomUUID().toString()).build();
         responseObserver.onNext(response);
+        responseObserver.onCompleted();
     }
 }

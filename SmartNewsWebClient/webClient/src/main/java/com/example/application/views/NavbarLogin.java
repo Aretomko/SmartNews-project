@@ -5,7 +5,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class NavbarLogin extends VerticalLayout {
     public NavbarLogin(){
-        Image image = new Image("https://sklquest.com/static/uploads/covid.jpg", "banner");
+        Image image = new Image("https://sklquest.com/static/uploads/smartNews.png", "banner");
         image.setHeight("200px");
         this.setPadding(true);
         this.add(image);

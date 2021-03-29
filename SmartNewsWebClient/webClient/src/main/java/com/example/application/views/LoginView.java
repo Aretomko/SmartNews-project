@@ -13,15 +13,15 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 import com.vaadin.flow.router.RouteConfiguration;
-import com.example.application.dataProviders.LoginProvider;
+import com.example.application.dataProviders.DataProvider;
+
 
 @Route(value = "login")
-@RouteAlias(value = "")
 @PageTitle("Login")
 public class LoginView extends Div {
 	public static final String ROUTE = "login";
 
-	public LoginView() {
+	public LoginView(DataProvider dataProvider) {
 		//block to center the form
 		VerticalLayout centered = new VerticalLayout();
 		centered.setAlignItems(FlexComponent.Alignment.CENTER);
@@ -36,7 +36,7 @@ public class LoginView extends Div {
 		PasswordField passwordField = new PasswordField("password");
 		Button submitButton = new Button("Увійти" , event -> {
 			try {
-				(userNameTextField.getValue(), passwordField.getValue());
+				dataProvider.authenticate(userNameTextField.getValue(), passwordField.getValue());
 			} catch (Exception e) {
 				Notification.show("Wrong id or password");
 			}
