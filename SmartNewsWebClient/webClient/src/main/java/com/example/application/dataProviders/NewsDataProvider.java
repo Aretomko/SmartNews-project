@@ -41,7 +41,7 @@ public class NewsDataProvider {
             Category category = new Category(response.getNews(i).getCategory().getId(),
                     response.getNews(i).getCategory().getName());
 
-            news.add(new News(response.getNews(i).getId(),response.getNews(i).getHeading(), sources, category));
+            news.add( new News(response.getNews(i).getId(),response.getNews(i).getHeading(), sources, category));
             sources.clear();
         }
         return news;
@@ -103,7 +103,22 @@ public class NewsDataProvider {
     }
 
     public List<Source> getSourcesByNews(News news){
-        De
+        GetSourcesByNewsRequest request = GetSourcesByNewsRequest.newBuilder()
+                .setToken("token")
+                .setNewsId(news.getId())
+                .build();
+        MultipleSourcesResponse response = stub.getSourcesByNews(request);
+
+        List<Source> sources = new ArrayList<>();
+
+        for(int i=0; i<response.getSourceCount(); i++){
+
+            sources.add(new Source(response.getSource(i).getId(),
+                    response.getSource(i).getName(),
+                    response.getSource(i).getReference(),
+                    response.getSource(i).getLikes()));
+        }
+        return sources;
     }
 
     public void deleteSource(Source source){

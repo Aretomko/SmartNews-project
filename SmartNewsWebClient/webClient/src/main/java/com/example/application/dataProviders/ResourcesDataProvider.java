@@ -11,16 +11,21 @@ import java.util.List;
 
 @Service
 public class ResourcesDataProvider {
-    public List<Resource> getAllResources(){
-        ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:6790").usePlaintext().build();
 
-        ResourcesServiceGrpc.ResourcesServiceBlockingStub stub = ResourcesServiceGrpc.newBlockingStub(channel);
+    private final ManagedChannel channel;
+    private final ResourcesServiceGrpc.ResourcesServiceBlockingStub stub;
+
+    public ResourcesDataProvider() {
+        this.channel = ManagedChannelBuilder.forTarget("localhost:6790").usePlaintext().build();
+        this.stub = ResourcesServiceGrpc.newBlockingStub(this.channel);
+
+    }
+
+    public List<Resource> getAllResources(){
 
         GetAllResourcesRequest request = GetAllResourcesRequest.newBuilder().setToken("token").build();
 
         AllResources response = stub.getAllResources(request);
-
-        channel.shutdownNow();
 
         List<Resource> resources = new ArrayList<>();
 
@@ -29,5 +34,21 @@ public class ResourcesDataProvider {
         }
 
         return resources;
+    }
+
+    public boolean createResource(String name, String reference){
+        CreateResourceRequest request = CreateResourceRequest.newBuilder().setName(name).setReference(reference).build();
+
+        CreateResponse response = stub.createNewResource(request);
+
+        return response.getCreated();
+    }
+
+    public boolean editResource(String id, String name, String reference){
+        EditResourceRequest request = EditResourceRequest.newBuilder().setId(id).setName(name).setReference(reference).build();
+
+        EditResourceResponse response = stub.editResource(request);
+
+        return response.getUpdated();
     }
 }

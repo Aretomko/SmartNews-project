@@ -1,5 +1,6 @@
 package com.example.application.views;
 
+import com.example.application.dataProviders.DataProvider;
 import com.example.application.views.user.registration.RegistrationMainPage;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -11,9 +12,7 @@ import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouteAlias;
 import com.vaadin.flow.router.RouteConfiguration;
-import com.example.application.dataProviders.DataProvider;
 
 
 @Route(value = "login")
@@ -31,7 +30,7 @@ public class LoginView extends Div {
 		VerticalLayout  verticalLayout = new VerticalLayout();
 		verticalLayout.setWidth("auto");
 		verticalLayout.setPadding(true);
-		NavbarLogin navbarView = new NavbarLogin();
+		com.example.application.views.NavbarLogin navbarView = new com.example.application.views.NavbarLogin();
 		TextField userNameTextField = new TextField("identifier");
 		PasswordField passwordField = new PasswordField("password");
 		Button submitButton = new Button("Увійти" , event -> {

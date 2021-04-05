@@ -22,7 +22,9 @@ public class CreateCategoriesGridService {
         grid.addColumn(Category::getName).setHeader("Name");
         grid.addColumn(Category::getId).setHeader("Id");
         grid.addComponentColumn(this::createDeleteButton).setHeader("Delete");
+        return grid;
     }
+
     private Button createDeleteButton(Category category){
         return new Button("Delete", event->{
             newsDataProvider.deleteCategory(category);

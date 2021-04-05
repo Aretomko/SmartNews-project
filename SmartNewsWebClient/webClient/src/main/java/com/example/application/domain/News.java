@@ -8,11 +8,11 @@ public class News {
     private List<Source> sources;
     private Category category;
 
-    public News(String id,String heading, List<Source> sources, Category category) {
+    public News(String id, String heading, List<Source> sources, Category category) {
+        this.id = id;
         this.heading = heading;
         this.sources = sources;
         this.category = category;
-        this.id = id;
     }
 
     public String getHeading() {

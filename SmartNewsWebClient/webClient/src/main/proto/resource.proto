@@ -21,9 +21,26 @@ message GetResourceByIdRequest{
 message GetAllResourcesRequest{
   string token= 1;
 }
+message CreateResourceRequest{
+  string name=1;
+  string reference =2;
+}
+message CreateResponse{
+  bool created =1;
+}
 
+message EditResourceRequest{
+  string id =1;
+  string name = 2;
+  string reference = 3;
+}
+message EditResourceResponse{
+  bool updated =1;
+}
 
 service ResourcesService{
   rpc getAllResources(GetAllResourcesRequest) returns(AllResources);
   rpc getResourceById(GetResourceByIdRequest) returns(Resource);
+  rpc createNewResource(CreateResourceRequest) returns(CreateResponse);
+  rpc editResource(EditResourceRequest) returns(EditResourceResponse);
 }
