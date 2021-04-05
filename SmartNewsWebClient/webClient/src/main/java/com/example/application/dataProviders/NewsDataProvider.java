@@ -152,4 +152,54 @@ public class NewsDataProvider {
                 .build();
         DeleteResponse deleteResponse = stub.deleteCategory(request);
     }
+
+    //create
+    public boolean createCategory(String name){
+        CreateCategoryRequest request = CreateCategoryRequest.newBuilder()
+                .setName(name)
+                .build();
+
+        CreateResponse createResponse = stub.createCategory(request);
+
+        return createResponse.getCreated();
+    }
+
+    public boolean editCategory(String id, String name){
+        EditCategoryRequest request = EditCategoryRequest.newBuilder()
+                .setId(id)
+                .setName(name)
+                .setToken("token")
+                .build();
+
+        EditResponse response = stub.editCategory(request);
+
+        return response.getEdited();
+    }
+
+    public boolean editSource(String id, String name, String reference){
+        EditSourceRequest request = EditSourceRequest.newBuilder()
+                .setId(id)
+                .setName(name)
+                .setReference(reference)
+                .setToken("token")
+                .build();
+
+        EditResponse response = stub.editSource(request);
+
+        return response.getEdited();
+    }
+
+    public boolean editNews(String id, String heading, String category){
+        EditNewsRequest request = EditNewsRequest.newBuilder()
+                .setCategory(category)
+                .setId(id)
+                .setHeading(heading)
+                .setToken("token")
+                .build();
+
+        EditResponse response = stub.editNews(request);
+
+        return response.getEdited();
+    }
+
 }

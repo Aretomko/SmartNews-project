@@ -19,11 +19,10 @@ public class CreateNewsComponent extends HorizontalLayout {
     private TextField heading;
     private Select<String> categorySelect;
 
-    public CreateNewsComponent(NewsDataProvider newsDataProvider,
-                               Grid<News> grid){
+    public CreateNewsComponent(Grid<News> newsDataProvider,
+                               ResourcesDataProvider grid){
         this.newsDataProvider = newsDataProvider;
         this.grid = grid;
         //UI initialization
-        this
     }
 }

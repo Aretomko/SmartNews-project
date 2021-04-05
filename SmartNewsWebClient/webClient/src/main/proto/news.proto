@@ -72,6 +72,47 @@ message GetSourcesByNewsRequest{
 message MultipleSourcesResponse{
   repeated Source source =1;
 }
+//create
+
+message CreateResponse{
+  bool created =1;
+}
+message CreateCategoryRequest{
+  string name=1;
+  string token=2;
+}
+message CreateNewsRequest{
+  string heading=1;
+  string categoryName=2;
+  string token =3;
+}
+
+message CreateSourceRequest{
+  string name =1;
+  string reference =2;
+  string token = 3;
+}
+
+message EditCategoryRequest{
+  string id= 1;
+  string name =2;
+  string token = 3;
+}
+message EditResponse{
+  bool edited =1;
+}
+message EditSourceRequest{
+  string id=1;
+  string name =2;
+  string reference = 3;
+  string token =4;
+}
+message EditNewsRequest{
+  string id =1;
+  string heading =2;
+  string category = 3;
+  string token = 4;
+}
 
 service NewsService{
   rpc getNewsByCategory(GetNewsByCategoryRequest) returns(MultipleNewsResponse);
@@ -82,4 +123,10 @@ service NewsService{
   rpc deleteSource(DeleteSourceRequest) returns(DeleteResponse);
   rpc deleteNews(DeleteNewsRequest) returns(DeleteResponse);
   rpc getSourcesByNews(GetSourcesByNewsRequest) returns(MultipleSourcesResponse);
+  rpc createCategory(CreateCategoryRequest) returns (CreateResponse);
+  rpc createNews(CreateCategoryRequest) returns (CreateResponse);
+  rpc createSource(CreateSourceRequest) returns(CreateResponse);
+  rpc editCategory(EditCategoryRequest) returns(EditResponse);
+  rpc editSource(EditSourceRequest) returns(EditResponse);
+  rpc editNews(EditNewsRequest) returns(EditResponse);
 }

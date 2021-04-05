@@ -20,7 +20,7 @@ public class NewsMainViewAdmin extends VerticalLayout {
         //UI initialization
         navbarAdmin = new NavbarAdmin();
         grid = createNewsGridService.createGrid();
-        CreateNewsComponent createNewsComponent = new CreateNewsComponent();
+        CreateNewsComponent createNewsComponent = new CreateNewsComponent(grid, resourcesDataProvider);
         modificationComponentDisplayed = createNewsComponent;
         grid.addItemClickListener(item->this.itemClickEvent(item.getItem(), createNewsComponent));
         this.displayUIComponents();

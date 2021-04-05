@@ -39,7 +39,7 @@ public class ResourcesDataProvider {
     public boolean createResource(String name, String reference){
         CreateResourceRequest request = CreateResourceRequest.newBuilder().setName(name).setReference(reference).build();
 
-        CreateResponse response = stub.createNewResource(request);
+        CreateResourceResponse response = stub.createNewResource(request);
 
         return response.getCreated();
     }

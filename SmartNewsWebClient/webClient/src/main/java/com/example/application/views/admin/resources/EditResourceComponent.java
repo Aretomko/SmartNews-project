@@ -46,11 +46,14 @@ public class EditResourceComponent extends HorizontalLayout {
         else referenceField.setPlaceholder("not set")
                 ;
         submitButton = new Button("Edit", event->{
-            this.editUser();
+            this.editResource();
         });
-
+        this.add(editLabel , nameField, referenceField, submitButton);
+        this.setWidth("100%");
+        this.setPadding(true);
+        this.setAlignItems(Alignment.BASELINE);
     }
-    public void  editUser(){
+    public void  editResource(){
         boolean edited = resourcesDataProvider.editResource(String.valueOf(resource.getId()), nameField.getValue(), referenceField.getValue());
         if(!edited) Notification.show("Server error resource was not updated");
         grid.getDataProvider().refreshItem(resource);

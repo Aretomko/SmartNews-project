@@ -25,7 +25,7 @@ message CreateResourceRequest{
   string name=1;
   string reference =2;
 }
-message CreateResponse{
+message CreateResourceResponse{
   bool created =1;
 }
 
@@ -41,6 +41,6 @@ message EditResourceResponse{
 service ResourcesService{
   rpc getAllResources(GetAllResourcesRequest) returns(AllResources);
   rpc getResourceById(GetResourceByIdRequest) returns(Resource);
-  rpc createNewResource(CreateResourceRequest) returns(CreateResponse);
+  rpc createNewResource(CreateResourceRequest) returns(CreateResourceResponse);
   rpc editResource(EditResourceRequest) returns(EditResourceResponse);
 }
