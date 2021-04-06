@@ -1,5 +1,6 @@
 package com.example.application.views.admin.news;
 
+import com.example.application.dataProviders.NewsDataProvider;
 import com.example.application.dataProviders.ResourcesDataProvider;
 import com.example.application.domain.News;
 import com.example.application.views.admin.NavbarAdmin;
@@ -8,26 +9,31 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class NewsMainViewAdmin extends VerticalLayout {
-    private final ResourcesDataProvider resourcesDataProvider;
+    private final NewsDataProvider newsDataProvider;
 
     private final NavbarAdmin navbarAdmin;
     private Grid<News> grid;
     private HorizontalLayout modificationComponentDisplayed;
 
-    public NewsMainViewAdmin(ResourcesDataProvider resourcesDataProvider,
+    public NewsMainViewAdmin(NewsDataProvider newsDataProvider,
                              CreateNewsGridService createNewsGridService){
-        this.resourcesDataProvider = resourcesDataProvider;
+        this.newsDataProvider = newsDataProvider;
         //UI initialization
         navbarAdmin = new NavbarAdmin();
         grid = createNewsGridService.createGrid();
-        CreateNewsComponent createNewsComponent = new CreateNewsComponent(grid, resourcesDataProvider);
+        CreateNewsComponent createNewsComponent = new CreateNewsComponent(newsDataProvider, grid);
         modificationComponentDisplayed = createNewsComponent;
         grid.addItemClickListener(item->this.itemClickEvent(item.getItem(), createNewsComponent));
         this.displayUIComponents();
     }
 
     private void itemClickEvent(News news, CreateNewsComponent createNewsComponent){
-        EditNewsComponent editNewsComponent = new EditNewsComponent();
+        EditNewsComponent editNewsComponent = new EditNewsComponent(news,
+                newsDataProvider,
+                grid,
+                this,
+                navbarAdmin,
+                createNewsComponent);
         modificationComponentDisplayed = editNewsComponent;
         this.removeAll();
         this.displayUIComponents();

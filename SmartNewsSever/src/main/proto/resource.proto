@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+// options for Java generated sources
+option java_multiple_files = true;
+option java_package = "com.thinhda.spring.grpc.core.model";
+
+
+package sms.core;
+
+message Resource{
+  string name = 1;
+  string reference = 2;
+}
+message AllResources{
+  repeated Resource resource = 1;
+}
+message GetResourceByIdRequest{
+  string id =1;
+  string token =2;
+}
+message GetAllResourcesRequest{
+  string token= 1;
+}
+message CreateResourceRequest{
+  string name=1;
+  string reference =2;
+}
+message CreateResourceResponse{
+  bool created =1;
+}
+
+message EditResourceRequest{
+  string id =1;
+  string name = 2;
+  string reference = 3;
+}
+message EditResourceResponse{
+  bool updated =1;
+}
+
+service ResourcesService{
+  rpc getAllResources(GetAllResourcesRequest) returns(AllResources);
+  rpc getResourceById(GetResourceByIdRequest) returns(Resource);
+  rpc createNewResource(CreateResourceRequest) returns(CreateResourceResponse);
+  rpc editResource(EditResourceRequest) returns(EditResourceResponse);
+}

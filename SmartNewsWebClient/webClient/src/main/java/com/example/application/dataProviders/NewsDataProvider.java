@@ -163,6 +163,30 @@ public class NewsDataProvider {
 
         return createResponse.getCreated();
     }
+    public boolean createSource(String name, String reference, String id){
+        CreateSourceRequest request = CreateSourceRequest.newBuilder()
+                .setName(name)
+                .setReference(reference)
+                .setNewsId(id)
+                .setToken("token")
+                .build();
+
+        CreateResponse response = stub.createSource(request);
+
+        return response.getCreated();
+    }
+    public boolean createNews(String heading, String categoryName){
+        CreateNewsRequest createNewsRequest = CreateNewsRequest.newBuilder()
+                .setHeading(heading)
+                .setCategoryName(categoryName)
+                .setToken("token")
+                .build();
+
+        CreateResponse response = stub.createNews(createNewsRequest);
+
+        return response.getCreated();
+    }
+
 
     public boolean editCategory(String id, String name){
         EditCategoryRequest request = EditCategoryRequest.newBuilder()
@@ -202,4 +226,12 @@ public class NewsDataProvider {
         return response.getEdited();
     }
 
+    public List<String> getCategoriesNames(){
+        List<Category> categories = this.getAllCategories();
+        List<String> names = new ArrayList<>();
+        for(Category category: categories){
+            names.add(category.getName());
+        }
+        return names;
+    }
 }

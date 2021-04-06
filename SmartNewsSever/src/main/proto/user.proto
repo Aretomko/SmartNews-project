@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+// options for Java generated sources
+option java_multiple_files = true;
+option java_package = "com.thinhda.spring.grpc.core.model";
+
+
+package sms.core;
+
+message User{
+  string name =1;
+  string password=2;
+  string token = 3;
+}
+message AllUsersResponse{
+  repeated User user = 1;
+}
+message GetUsersRequest{
+  string token=1;
+}
+
+service UserService{
+  rpc getAllUsers(GetUsersRequest) returns(AllUsersResponse);
+}

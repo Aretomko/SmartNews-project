@@ -40,7 +40,7 @@ public class EditCategoryComponent extends HorizontalLayout {
         submitButton = new Button("Edit", event->{
             this.editCategory();
         });
-        this.add(editLabel,categoryName, submitButton, submitButton);
+        this.add(editLabel,categoryName, submitButton);
         this.setWidth("100%");
         this.setPadding(true);
         this.setAlignItems(Alignment.BASELINE);
