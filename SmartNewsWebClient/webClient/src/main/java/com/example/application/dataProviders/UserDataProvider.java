@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDataProvider{
     public String authenticate(String username, String password){
-        ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:6790").usePlaintext().build();
+        ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:6565").usePlaintext().build();
 
         LoginServiceGrpc.LoginServiceBlockingStub stub = LoginServiceGrpc.newBlockingStub(channel);
 

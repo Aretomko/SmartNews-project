@@ -17,7 +17,7 @@ public class NewsDataProvider {
     NewsServiceGrpc.NewsServiceBlockingStub stub;
 
     public NewsDataProvider() {
-        channel = ManagedChannelBuilder.forTarget("localhost:6790").usePlaintext().build();
+        channel = ManagedChannelBuilder.forTarget("localhost:6565").usePlaintext().build();
         stub = NewsServiceGrpc.newBlockingStub(channel);
     }
 
