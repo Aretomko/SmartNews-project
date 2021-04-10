@@ -4,7 +4,7 @@ package com.example.demo.domain;
 import org.springframework.security.core.GrantedAuthority;
 
 public enum Role implements GrantedAuthority {
-    ADMIN, USER;
+    ADMIN, SUPERADMIN;
 
     @Override
     public String getAuthority() {
@@ -13,7 +13,7 @@ public enum Role implements GrantedAuthority {
 
    public static Role parseRoleFromString(String role) throws Exception {
         switch (role){
-            case("USER") : return Role.USER;
+            case("SUPERADMIN") : return Role.SUPERADMIN;
             case("ADMIN") : return Role.ADMIN;
             default: throw new Exception("Can't parse user's role");
         }

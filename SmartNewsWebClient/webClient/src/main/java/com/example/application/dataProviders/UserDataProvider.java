@@ -14,7 +14,7 @@ public class UserDataProvider{
 
         LoginServiceGrpc.LoginServiceBlockingStub stub = LoginServiceGrpc.newBlockingStub(channel);
 
-        LoginRequest request = LoginRequest.newBuilder().setUsername("username").setPassword("Password").build();
+        LoginRequest request = LoginRequest.newBuilder().setUsername(username).setPassword(password).build();
 
         LoginResponse response = stub.login(request);
 

@@ -2,6 +2,7 @@ package com.example.demo.domain;
 
 import javax.persistence.*;
 import java.net.InetAddress;
+import java.util.Objects;
 
 @Entity
 public class Source {
@@ -63,5 +64,18 @@ public class Source {
 
     public void setNews(News news) {
         this.news = news;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Source)) return false;
+        Source source = (Source) o;
+        return Objects.equals(id, source.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, reference, likes, news);
     }
 }
