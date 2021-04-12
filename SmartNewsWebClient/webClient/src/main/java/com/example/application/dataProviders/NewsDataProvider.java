@@ -4,6 +4,7 @@ import com.example.application.domain.Category;
 import com.example.application.domain.News;
 import com.example.application.domain.Source;
 import com.thinhda.spring.grpc.core.model.*;
+import com.vaadin.flow.server.VaadinSession;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.springframework.stereotype.Service;
@@ -15,16 +16,22 @@ import java.util.List;
 public class NewsDataProvider {
     ManagedChannel channel;
     NewsServiceGrpc.NewsServiceBlockingStub stub;
+    String token;
 
     public NewsDataProvider() {
         channel = ManagedChannelBuilder.forTarget("localhost:6565").usePlaintext().build();
         stub = NewsServiceGrpc.newBlockingStub(channel);
+        try {
+            token = (String) VaadinSession.getCurrent().getAttribute("token");
+        }catch(Exception e){
+            token = "token";
+        }
     }
 
     public List<News> getNewsByCategory(String id){
         GetNewsByCategoryRequest request = GetNewsByCategoryRequest.newBuilder()
                 .setCategory(id)
-                .setToken("token").build();
+                .setToken(token).build();
 
         MultipleNewsResponse response  = stub.getNewsByCategory(request);
 
@@ -47,7 +54,9 @@ public class NewsDataProvider {
         return news;
     }
     public News getNewsById(String id){
-        GetNewsByIdRequest request = GetNewsByIdRequest.newBuilder().setId(id).setToken("token").build();
+        GetNewsByIdRequest request = GetNewsByIdRequest.newBuilder()
+                .setId(id)
+                .setToken(token).build();
 
         SingleNewsResponse response = stub.getNewsById(request);
 
@@ -72,7 +81,9 @@ public class NewsDataProvider {
     }
 
     public List<News> getAllNews(){
-        GetAllNewsRequest request = GetAllNewsRequest.newBuilder().setToken("token").build();
+        GetAllNewsRequest request = GetAllNewsRequest.newBuilder()
+                .setToken(token)
+                .build();
 
         MultipleNewsResponse response = stub.getAllNews(request);
 
@@ -97,14 +108,17 @@ public class NewsDataProvider {
     }
 
     public void deleteNewsWithSources(News news){
-        DeleteNewsRequest request = DeleteNewsRequest.newBuilder().setNewsId(news.getId()).build();
+        DeleteNewsRequest request = DeleteNewsRequest.newBuilder()
+                .setNewsId(news.getId())
+                .setToken(token)
+                .build();
 
         DeleteResponse response = stub.deleteNews(request);
     }
 
     public List<Source> getSourcesByNews(News news){
         GetSourcesByNewsRequest request = GetSourcesByNewsRequest.newBuilder()
-                .setToken("token")
+                .setToken(token)
                 .setNewsId(news.getId())
                 .build();
         MultipleSourcesResponse response = stub.getSourcesByNews(request);
@@ -123,7 +137,7 @@ public class NewsDataProvider {
 
     public void deleteSource(Source source){
         DeleteSourceRequest request = DeleteSourceRequest.newBuilder()
-                .setToken("token")
+                .setToken(token)
                 .setSourceId(source.getId())
                 .build();
 
@@ -131,7 +145,9 @@ public class NewsDataProvider {
 
     }
     public List<Category> getAllCategories(){
-        GetCategoriesRequest request = GetCategoriesRequest.newBuilder().setToken("token").build();
+        GetCategoriesRequest request = GetCategoriesRequest.newBuilder()
+                .setToken(token)
+                .build();
 
         MultipleCategoriesResponse response = stub.getAllCategories(request);
 
@@ -148,7 +164,7 @@ public class NewsDataProvider {
     public void deleteCategory(Category category){
         DeleteCategoryRequest request = DeleteCategoryRequest.newBuilder()
                 .setCategoryId(category.getId())
-                .setToken("token")
+                .setToken(token)
                 .build();
         DeleteResponse deleteResponse = stub.deleteCategory(request);
     }
@@ -157,6 +173,7 @@ public class NewsDataProvider {
     public boolean createCategory(String name){
         CreateCategoryRequest request = CreateCategoryRequest.newBuilder()
                 .setName(name)
+                .setToken(token)
                 .build();
 
         CreateResponse createResponse = stub.createCategory(request);
@@ -168,7 +185,7 @@ public class NewsDataProvider {
                 .setName(name)
                 .setReference(reference)
                 .setNewsId(id)
-                .setToken("token")
+                .setToken(token)
                 .build();
 
         CreateResponse response = stub.createSource(request);
@@ -179,7 +196,7 @@ public class NewsDataProvider {
         CreateNewsRequest createNewsRequest = CreateNewsRequest.newBuilder()
                 .setHeading(heading)
                 .setCategoryName(categoryName)
-                .setToken("token")
+                .setToken(token)
                 .build();
 
         CreateResponse response = stub.createNews(createNewsRequest);
@@ -192,7 +209,7 @@ public class NewsDataProvider {
         EditCategoryRequest request = EditCategoryRequest.newBuilder()
                 .setId(id)
                 .setName(name)
-                .setToken("token")
+                .setToken(token)
                 .build();
 
         EditResponse response = stub.editCategory(request);
@@ -205,7 +222,7 @@ public class NewsDataProvider {
                 .setId(id)
                 .setName(name)
                 .setReference(reference)
-                .setToken("token")
+                .setToken(token)
                 .build();
 
         EditResponse response = stub.editSource(request);
@@ -218,7 +235,7 @@ public class NewsDataProvider {
                 .setCategory(category)
                 .setId(id)
                 .setHeading(heading)
-                .setToken("token")
+                .setToken(token)
                 .build();
 
         EditResponse response = stub.editNews(request);

@@ -1,7 +1,6 @@
 package com.example.application.views;
 
 import com.example.application.dataProviders.UserDataProvider;
-import com.example.application.views.user.registration.RegistrationMainPage;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
@@ -13,6 +12,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteConfiguration;
+import com.vaadin.flow.server.VaadinSession;
 
 
 @Route(value = "login")
@@ -35,7 +35,8 @@ public class LoginView extends Div {
 		PasswordField passwordField = new PasswordField("password");
 		Button submitButton = new Button("Увійти" , event -> {
 			try {
-				userDataProvider.authenticate(userNameTextField.getValue(), passwordField.getValue());
+				String token = userDataProvider.authenticate(userNameTextField.getValue(), passwordField.getValue());
+				VaadinSession.getCurrent().setAttribute("token", token);
 			} catch (Exception e) {
 				Notification.show("Wrong id or password");
 			}
@@ -46,13 +47,7 @@ public class LoginView extends Div {
 		VerticalLayout centerSubmitButton = new VerticalLayout();
 		centerSubmitButton.setAlignItems(FlexComponent.Alignment.CENTER);
 		centerSubmitButton.add(submitButton);
-		VerticalLayout centerRegistrationButton = new VerticalLayout();
-		centerRegistrationButton.setAlignItems(FlexComponent.Alignment.CENTER);
-		centerRegistrationButton.add(new Button("Registration", event->{
-			RouteConfiguration.forSessionScope().setRoute("registration", RegistrationMainPage.class);
-			UI.getCurrent().navigate("registration");
-		}));
-		verticalLayout.add(userNameTextField, passwordField, centerSubmitButton, centerRegistrationButton);
+		verticalLayout.add(userNameTextField, passwordField, centerSubmitButton);
 		centered.add(verticalLayout);
 		add(navbarView,centered);
 	}
