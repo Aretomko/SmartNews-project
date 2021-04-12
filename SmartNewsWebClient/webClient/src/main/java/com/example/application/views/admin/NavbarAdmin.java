@@ -20,7 +20,7 @@ public class NavbarAdmin extends VerticalLayout {
         this.setWidth("100%");
         this.setMinHeight("100px");
         this.setAlignItems(Alignment.CENTER);
-        centered.add();
+        centered.add(categories, news, resources);
         this.add(centered);
     }
 }

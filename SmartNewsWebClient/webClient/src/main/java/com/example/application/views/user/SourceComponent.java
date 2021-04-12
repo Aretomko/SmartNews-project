@@ -1,6 +1,7 @@
 package com.example.application.views.user;
 
 import com.example.application.dataProviders.InternationalizationProvider;
+import com.example.application.dataProviders.NewsDataProvider;
 import com.example.application.domain.Source;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -10,6 +11,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class SourceComponent extends VerticalLayout {
+    private final InternationalizationProvider internationalizationProvider;
+    private final NewsDataProvider newsDataProvider;
     //UI components
     private Image displayImage;
     private Label name;
@@ -17,10 +20,15 @@ public class SourceComponent extends VerticalLayout {
     private Label likes;
 
     public SourceComponent(InternationalizationProvider internationalizationProvider,
-                           Source source){
+                           Source source,
+                           NewsDataProvider newsDataProvider){
+        this.internationalizationProvider = internationalizationProvider;
+        this.newsDataProvider = newsDataProvider;
+        //UI initialization
         displayImage = new Image("https://sklquest.com/static/uploads/like.png", "empty hard");
         displayImage.setHeight("30px");
         displayImage.setWidth("30px");
+        displayImage.addClickListener(i->like(source));
         name = new Label(source.getName());
         read  =new Button("Read" , event->{
             UI.getCurrent().getPage().executeJavaScript("window.open(\""+source.getReference()+"\", \"_blank\");");
@@ -31,5 +39,11 @@ public class SourceComponent extends VerticalLayout {
         layout.setWidth("100%");
         layout.setAlignItems(Alignment.BASELINE);
         this.add(layout);
+    }
+
+    private void like(Source source){
+        displayImage.setSrc("https://sklquest.com/static/uploads/heart.png");
+        likes.setText(String.valueOf(source.getLikes()+1));
+        boolean edited = newsDataProvider.editSource(source.getId(), source.getName(), source.getReference());
     }
 }

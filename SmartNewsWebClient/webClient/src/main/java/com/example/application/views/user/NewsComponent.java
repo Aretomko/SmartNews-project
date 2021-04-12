@@ -23,7 +23,7 @@ public class NewsComponent extends VerticalLayout {
         List<Source> sources = newsDataProvider.getSourcesByNews(news);
         if(sources !=null && sources.size()!=0) {
             for (Source source : sources) {
-                this.add(new SourceComponent(internationalizationProvider, source));
+                this.add(new SourceComponent(internationalizationProvider, source, newsDataProvider));
             }
         }else {
             this.add(new Label("No sources jet"));

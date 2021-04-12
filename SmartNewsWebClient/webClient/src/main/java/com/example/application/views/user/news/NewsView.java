@@ -2,7 +2,6 @@ package com.example.application.views.user.news;
 
 import com.example.application.dataProviders.InternationalizationProvider;
 import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.domain.Category;
 import com.example.application.domain.News;
 import com.example.application.views.user.NavbarUser;
 import com.example.application.views.user.NewsComponent;
@@ -11,7 +10,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.VaadinSession;
 
-import java.util.stream.Collectors;
 @Route("news")
 public class NewsView extends VerticalLayout {
     private Label newsLabel;

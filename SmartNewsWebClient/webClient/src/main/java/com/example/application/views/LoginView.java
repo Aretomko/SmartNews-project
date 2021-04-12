@@ -1,6 +1,7 @@
 package com.example.application.views;
 
 import com.example.application.dataProviders.UserDataProvider;
+import com.example.application.service.AuthService;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
@@ -20,7 +21,8 @@ import com.vaadin.flow.server.VaadinSession;
 public class LoginView extends Div {
 	public static final String ROUTE = "login";
 
-	public LoginView(UserDataProvider userDataProvider) {
+	public LoginView(UserDataProvider userDataProvider,
+					 AuthService authService) {
 		//block to center the form
 		VerticalLayout centered = new VerticalLayout();
 		centered.setAlignItems(FlexComponent.Alignment.CENTER);
@@ -37,6 +39,7 @@ public class LoginView extends Div {
 			try {
 				String token = userDataProvider.authenticate(userNameTextField.getValue(), passwordField.getValue());
 				VaadinSession.getCurrent().setAttribute("token", token);
+				authService.authenticate(userNameTextField.getValue());
 			} catch (Exception e) {
 				Notification.show("Wrong id or password");
 			}

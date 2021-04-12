@@ -299,6 +299,7 @@ public class GetNewsService extends NewsServiceGrpc.NewsServiceImplBase {
             EditResponse.Builder responseBuilder = EditResponse.newBuilder();
             if (category != null) {
                 category.setName(name);
+
                 categoryRepo.save(category);
                 responseBuilder.setEdited(true);
             } else {

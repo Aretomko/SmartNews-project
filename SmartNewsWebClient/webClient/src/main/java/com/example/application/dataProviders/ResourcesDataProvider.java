@@ -16,14 +16,15 @@ public class ResourcesDataProvider {
     private final ResourcesServiceGrpc.ResourcesServiceBlockingStub stub;
 
     public ResourcesDataProvider() {
-        this.channel = ManagedChannelBuilder.forTarget("localhost:6790").usePlaintext().build();
+        this.channel = ManagedChannelBuilder.forTarget("localhost:6565").usePlaintext().build();
         this.stub = ResourcesServiceGrpc.newBlockingStub(this.channel);
 
     }
 
     public List<Resource> getAllResources(){
 
-        GetAllResourcesRequest request = GetAllResourcesRequest.newBuilder().setToken("token").build();
+        GetAllResourcesRequest request = GetAllResourcesRequest.newBuilder()
+                .setToken("token").build();
 
         AllResources response = stub.getAllResources(request);
 

@@ -4,6 +4,7 @@ import com.example.application.dataProviders.UserDataProvider;
 import com.example.application.views.admin.MainAdminView;
 import com.example.application.views.admin.categories.CategoriesMainViewAdmin;
 import com.example.application.views.admin.news.NewsMainViewAdmin;
+import com.example.application.views.admin.news.sources.SourcesMainView;
 import com.example.application.views.admin.resources.ResourcesMainViewAdmin;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
@@ -55,14 +56,10 @@ public class AuthService {
         this.userDataProvider = userDataProvider;
     }
 
-    public boolean authenticate(String username, String password){
-        String response  = userDataProvider.authenticate(username, password);
-        if(!response.equals("denied")){
+    public boolean authenticate(String username){
             this.getRoutes().forEach(route -> RouteConfiguration.forSessionScope().setRoute(route.path, route.view));
             VaadinSession.getCurrent().setAttribute("username", username);
             return true;
-        }
-        else return false;
     }
 
     public List<AuthorisedRoute> getRoutes(){
@@ -71,6 +68,7 @@ public class AuthService {
         routes.add(new AuthorisedRoute("admin/categories", CategoriesMainViewAdmin.class));
         routes.add(new AuthorisedRoute("admin/news", NewsMainViewAdmin.class));
         routes.add(new AuthorisedRoute("admin/resources", ResourcesMainViewAdmin.class));
+        routes.add(new AuthorisedRoute("admin/news/sources", SourcesMainView.class));
         return routes;
     }
 }

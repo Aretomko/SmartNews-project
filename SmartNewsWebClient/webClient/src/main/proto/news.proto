@@ -130,4 +130,5 @@ service NewsService{
   rpc editCategory(EditCategoryRequest) returns(EditResponse);
   rpc editSource(EditSourceRequest) returns(EditResponse);
   rpc editNews(EditNewsRequest) returns(EditResponse);
+  rpc addLike
 }

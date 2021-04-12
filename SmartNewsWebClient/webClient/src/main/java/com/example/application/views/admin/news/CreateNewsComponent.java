@@ -27,10 +27,15 @@ public class CreateNewsComponent extends HorizontalLayout {
         //UI initialization
         createLabel = new Label("Create new news");
         heading = new TextField("heading");
+        categorySelect = new Select<>();
         categorySelect.setItems(newsDataProvider.getCategoriesNames());
         submitButton = new Button("Create", event->{
-
+            this.createNews();
         });
+        this.add(createLabel , heading, categorySelect, submitButton);
+        this.setWidth("100%");
+        this.setPadding(true);
+        this.setAlignItems(Alignment.BASELINE);
     }
     public void createNews(){
         boolean created = newsDataProvider.createNews(heading.getValue(), categorySelect.getValue());
