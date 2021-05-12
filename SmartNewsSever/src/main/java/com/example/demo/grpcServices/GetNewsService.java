@@ -12,6 +12,11 @@ import io.grpc.StatusException;
 import io.grpc.stub.StreamObserver;
 import org.lognet.springboot.grpc.GRpcService;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 import java.util.Objects;
 
@@ -264,9 +269,20 @@ public class GetNewsService extends NewsServiceGrpc.NewsServiceImplBase {
         String heading = request.getHeading();
         Category category = categoryRepo.findByName(request.getCategoryName());
         News news = new News(heading, category);
+        newsRepo.save(news);
         CreateResponse response = CreateResponse.newBuilder().setCreated(true).build();
         responseObserver.onNext(response);
         responseObserver.onCompleted();
+        this.createUpdate(request.getHeading());
+    }
+
+    private void createUpdate(String update){
+        Path path = Paths.get("C:\\Users\\ArtemCodeMachine\\Desktop\\updates.txt");
+        try {
+            Files.write(path, (update+" Read more here: myNewsDomain.com"+"/").getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

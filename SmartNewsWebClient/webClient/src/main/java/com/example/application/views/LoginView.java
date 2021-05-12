@@ -1,6 +1,6 @@
 package com.example.application.views;
 
-import com.example.application.dataProviders.UserDataProvider;
+import com.example.application.dataProvider.UserDataProvider;
 import com.example.application.service.AuthService;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -12,7 +12,6 @@ import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouteConfiguration;
 import com.vaadin.flow.server.VaadinSession;
 
 

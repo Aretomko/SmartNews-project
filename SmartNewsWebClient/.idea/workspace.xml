@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="adedadf9-5707-43f1-a176-f2368b5e5635" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TelegramBotSmartNews/src/main/java/Bot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TelegramBotSmartNews/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TelegramBotSmartNews/src/main/java/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TelegramBotSmartNews/src/main/java/UserRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TelegramBotSmartNews/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/AuthenticationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/DemoApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/domain/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/domain/News.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/domain/Resource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/domain/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/domain/Source.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/domain/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/grpcServices/GetNewsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/grpcServices/LoginService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/grpcServices/ResourcesService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/grpcServices/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/repos/CategoryRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/repos/NewsRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/repos/ResourceRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/repos/SourceRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/java/com/example/demo/repos/UserRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/proto/login.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/proto/news.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/proto/resource.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/proto/user.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/test/java/com/example/demo/LoginServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/test/java/com/example/demo/NewsServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/SmartNewsSever - Copy/src/test/java/com/example/demo/ResourceServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Report1ArtemRomanenko/Sprawozdanie część 1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SmartNewsSever.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SmartNewsSever/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SmartNewsSever/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SmartNewsSever/src/main/java/com/example/demo/grpcServices/GetNewsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SmartNewsSever/src/main/java/com/example/demo/grpcServices/GetNewsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SmartNewsSever/src/main/java/com/example/demo/grpcServices/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SmartNewsSever/src/main/java/com/example/demo/grpcServices/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webClient/src/main/java/com/example/application/views/admin/news/sources/CreateSourcesGridService.java" beforeDir="false" afterPath="$PROJECT_DIR$/webClient/src/main/java/com/example/application/views/admin/news/sources/CreateSourcesGridService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Java\IntelliJ IDEA Community Edition 2019.2.4\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1sC9VXqsOYgolmm8Pcec9l23JAi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="adedadf9-5707-43f1-a176-f2368b5e5635" name="Default Changelist" comment="" />
+      <created>1620365730325</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620365730325</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2660" y="275" key="FileChooserDialogImpl" timestamp="1620365754986">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2660" y="275" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620365754986" />
+  </component>
+</project>

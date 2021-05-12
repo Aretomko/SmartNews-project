@@ -1,7 +1,7 @@
 package com.example.application.views.admin.categories;
 
-import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.domain.Category;
+import com.example.application.dataProvider.NewsDataProvider;
+import com.example.application.domain.domain.Category;
 import com.example.application.views.admin.NavbarAdmin;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
@@ -69,5 +69,9 @@ public class EditCategoryComponent extends HorizontalLayout {
 
     public Button getSubmitButton() {
         return submitButton;
+    }
+
+    public void setCategoryName(TextField categoryName) {
+        this.categoryName = categoryName;
     }
 }

@@ -1,6 +1,6 @@
 package com.example.application.views.user.categories;
 
-import com.example.application.domain.Category;
+import com.example.application.domain.domain.Category;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Label;

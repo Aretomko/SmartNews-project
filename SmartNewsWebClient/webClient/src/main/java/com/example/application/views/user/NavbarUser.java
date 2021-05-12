@@ -1,12 +1,10 @@
 package com.example.application.views.user;
 
-import com.example.application.dataProviders.InternationalizationProvider;
+import com.example.application.dataProvider.InternationalizationProvider;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.server.VaadinSession;
 
@@ -22,7 +20,7 @@ public class NavbarUser extends HorizontalLayout {
         }
         HorizontalLayout loginLayout = new HorizontalLayout();
         loginLayout.setWidth("20%");
-        Image logo = new Image("https://sklquest.com/static/uploads/newsLogo.png", "logo");
+        Image logo = new Image("http://sklquest.com/static/uploads/newsLogo.png", "logo");
         logo.setHeight("70px");
         logo.setWidth("110px");
         logo.getStyle().set("margin", "20px");

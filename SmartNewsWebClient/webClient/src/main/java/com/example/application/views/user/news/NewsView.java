@@ -1,8 +1,8 @@
 package com.example.application.views.user.news;
 
-import com.example.application.dataProviders.InternationalizationProvider;
-import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.domain.News;
+import com.example.application.dataProvider.InternationalizationProvider;
+import com.example.application.dataProvider.NewsDataProvider;
+import com.example.application.domain.domain.News;
 import com.example.application.views.user.NavbarUser;
 import com.example.application.views.user.NewsComponent;
 import com.vaadin.flow.component.html.Label;

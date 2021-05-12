@@ -1,7 +1,7 @@
 package com.example.application.views.admin.news;
 
-import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.domain.News;
+import com.example.application.dataProvider.NewsDataProvider;
+import com.example.application.domain.domain.News;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Label;
@@ -38,11 +38,23 @@ public class CreateNewsComponent extends HorizontalLayout {
         this.setAlignItems(Alignment.BASELINE);
     }
     public void createNews(){
+        if(this.heading.getValue().equals("")||this.categorySelect.getValue().equals("")){
+            Notification.show("News was not created, wrong data");
+            return;
+        }
         boolean created = newsDataProvider.createNews(heading.getValue(), categorySelect.getValue());
         if(!created) Notification.show("News was not created, wrong data")
                 ;
         heading.setValue("");
         categorySelect.setValue("");
         grid.setItems(newsDataProvider.getAllNews());
+    }
+
+    public void setHeading(TextField heading) {
+        this.heading = heading;
+    }
+
+    public void setCategorySelect(Select<String> categorySelect) {
+        this.categorySelect = categorySelect;
     }
 }

@@ -1,8 +1,7 @@
 package com.example.application.views.admin.news;
 
-import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.dataProviders.ResourcesDataProvider;
-import com.example.application.domain.News;
+import com.example.application.dataProvider.NewsDataProvider;
+import com.example.application.domain.domain.News;
 import com.example.application.views.admin.NavbarAdmin;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;

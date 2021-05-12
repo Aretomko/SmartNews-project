@@ -1,7 +1,7 @@
 package com.example.application.views.admin.resources;
 
-import com.example.application.dataProviders.ResourcesDataProvider;
-import com.example.application.domain.Resource;
+import com.example.application.dataProvider.ResourcesDataProvider;
+import com.example.application.domain.domain.Resource;
 import com.vaadin.flow.component.grid.Grid;
 import org.springframework.stereotype.Service;
 

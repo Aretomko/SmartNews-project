@@ -1,7 +1,7 @@
 package com.example.application.views.admin.categories;
 
-import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.domain.Category;
+import com.example.application.dataProvider.NewsDataProvider;
+import com.example.application.domain.domain.Category;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import org.springframework.stereotype.Service;
@@ -11,6 +11,7 @@ public class CreateCategoriesGridService {
     private final NewsDataProvider newsDataProvider;
 
     private Grid<Category> grid;
+    private Button removeButton;
 
     public CreateCategoriesGridService(NewsDataProvider newsDataProvider) {
         this.newsDataProvider = newsDataProvider;

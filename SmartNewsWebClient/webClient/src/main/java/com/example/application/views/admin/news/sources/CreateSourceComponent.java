@@ -1,8 +1,8 @@
 package com.example.application.views.admin.news.sources;
 
-import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.domain.News;
-import com.example.application.domain.Source;
+import com.example.application.dataProvider.NewsDataProvider;
+import com.example.application.domain.domain.News;
+import com.example.application.domain.domain.Source;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Label;
@@ -44,5 +44,21 @@ public class CreateSourceComponent extends HorizontalLayout {
         nameField.setValue("");
         referenceField.setValue("");
         grid.setItems(newsDataProvider.getSourcesByNews(news));
+    }
+
+    public TextField getNameField() {
+        return nameField;
+    }
+
+    public void setNameField(TextField nameField) {
+        this.nameField = nameField;
+    }
+
+    public TextField getReferenceField() {
+        return referenceField;
+    }
+
+    public void setReferenceField(TextField referenceField) {
+        this.referenceField = referenceField;
     }
 }

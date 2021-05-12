@@ -1,6 +1,6 @@
 package com.example.application.service;
 
-import com.example.application.dataProviders.UserDataProvider;
+import com.example.application.dataProvider.UserDataProvider;
 import com.example.application.views.admin.MainAdminView;
 import com.example.application.views.admin.categories.CategoriesMainViewAdmin;
 import com.example.application.views.admin.news.NewsMainViewAdmin;
@@ -8,7 +8,6 @@ import com.example.application.views.admin.news.sources.SourcesMainView;
 import com.example.application.views.admin.resources.ResourcesMainViewAdmin;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
-import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.RouteConfiguration;
 import com.vaadin.flow.server.VaadinSession;
 import org.springframework.stereotype.Service;

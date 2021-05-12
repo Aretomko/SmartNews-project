@@ -1,15 +1,12 @@
 package com.example.application.views.admin.news;
 
-import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.domain.News;
-import com.example.application.domain.Source;
+import com.example.application.dataProvider.NewsDataProvider;
+import com.example.application.domain.domain.News;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.server.VaadinSession;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class CreateNewsGridService  {

@@ -265,7 +265,7 @@ public class NewsServiceTest {
         NewsServiceGrpc.NewsServiceBlockingStub stub;
         channel = ManagedChannelBuilder.forTarget("localhost:6565").usePlaintext().build();
         stub = NewsServiceGrpc.newBlockingStub(channel);
-        CreateResponse responce = stub.createCategory(request);
+        CreateResponse response = stub.createCategory(request);
         int numberOfCategoriesAfter = categoryRepo.findAll().size();
         Assert.assertEquals(numberOfCategoriesBefore+1, numberOfCategoriesAfter);
     }

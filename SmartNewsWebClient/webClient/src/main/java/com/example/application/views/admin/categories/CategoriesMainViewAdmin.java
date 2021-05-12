@@ -1,7 +1,7 @@
 package com.example.application.views.admin.categories;
 
-import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.domain.Category;
+import com.example.application.dataProvider.NewsDataProvider;
+import com.example.application.domain.domain.Category;
 import com.example.application.views.admin.NavbarAdmin;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -25,6 +25,7 @@ public class CategoriesMainViewAdmin extends VerticalLayout {
         grid.addItemClickListener(item -> this.itemClickEvent(item.getItem(), createCategoryComponent));
         this.displayUiComponents();
     }
+
 
     private void itemClickEvent(Category category, CreateCategoryComponent createCategoryComponent){
         this.modificationComponentDisplayed = new EditCategoryComponent(category,newsDataProvider, grid, this, navbarAdmin, createCategoryComponent );

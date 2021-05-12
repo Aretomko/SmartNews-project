@@ -1,7 +1,7 @@
 package com.example.application.views.admin.categories;
 
-import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.domain.Category;
+import com.example.application.dataProvider.NewsDataProvider;
+import com.example.application.domain.domain.Category;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Label;
@@ -35,9 +35,16 @@ public class CreateCategoryComponent extends HorizontalLayout {
         this.setAlignItems(Alignment.BASELINE);
 
     }
+
     public void createNewCategory(){
+        if(this.categoryName.getValue().equals("")|| this.categoryName==null) {
+            Notification.show("Category name cant be empty");
+            return;
+        }
         boolean created = newsDataProvider.createCategory(categoryName.getValue());
-        if (!created) Notification.show("Category was not created, wrong data");
+
+        if (!created) Notification.show("Category was not created, wrong data")
+                ;
         categoryName.setValue("");
         grid.setItems(newsDataProvider.getAllCategories());
     }
@@ -52,5 +59,9 @@ public class CreateCategoryComponent extends HorizontalLayout {
 
     public Button getSubmitButton() {
         return submitButton;
+    }
+
+    public void setCategoryName(TextField categoryName) {
+        this.categoryName = categoryName;
     }
 }

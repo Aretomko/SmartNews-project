@@ -1,8 +1,8 @@
 package com.example.application.views.user;
 
-import com.example.application.dataProviders.InternationalizationProvider;
-import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.domain.Source;
+import com.example.application.dataProvider.InternationalizationProvider;
+import com.example.application.dataProvider.NewsDataProvider;
+import com.example.application.domain.domain.Source;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Image;

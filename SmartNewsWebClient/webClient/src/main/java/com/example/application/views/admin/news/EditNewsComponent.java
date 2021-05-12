@@ -1,7 +1,7 @@
 package com.example.application.views.admin.news;
 
-import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.domain.News;
+import com.example.application.dataProvider.NewsDataProvider;
+import com.example.application.domain.domain.News;
 import com.example.application.views.admin.NavbarAdmin;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
@@ -63,5 +63,13 @@ public class EditNewsComponent extends HorizontalLayout {
             adminView.removeAll();
             adminView.add(navbarAdmin, createNewsComponent, grid);
         }
+    }
+
+    public void setHeading(TextField heading) {
+        this.heading = heading;
+    }
+
+    public void setCategorySelect(Select<String> categorySelect) {
+        this.categorySelect = categorySelect;
     }
 }

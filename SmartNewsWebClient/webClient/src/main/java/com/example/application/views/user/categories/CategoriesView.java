@@ -1,12 +1,11 @@
 package com.example.application.views.user.categories;
 
-import com.example.application.dataProviders.InternationalizationProvider;
-import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.domain.Category;
+import com.example.application.dataProvider.InternationalizationProvider;
+import com.example.application.dataProvider.NewsDataProvider;
+import com.example.application.domain.domain.Category;
 import com.example.application.views.admin.NavbarAdmin;
 import com.example.application.views.user.NavbarUser;
 import com.vaadin.flow.component.html.Label;
-import com.vaadin.flow.component.html.NativeButton;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.VaadinSession;

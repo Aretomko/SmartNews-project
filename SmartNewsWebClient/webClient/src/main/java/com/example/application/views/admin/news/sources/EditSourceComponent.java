@@ -1,7 +1,7 @@
 package com.example.application.views.admin.news.sources;
 
-import com.example.application.dataProviders.NewsDataProvider;
-import com.example.application.domain.Source;
+import com.example.application.dataProvider.NewsDataProvider;
+import com.example.application.domain.domain.Source;
 import com.example.application.views.admin.NavbarAdmin;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
@@ -49,5 +49,13 @@ public class EditSourceComponent extends HorizontalLayout {
 
     public void editSource(){
         boolean edited = newsDataProvider.editSource(source.getId(), nameField.getValue(), referenceField.getValue());
+    }
+
+    public void setNameField(TextField nameField) {
+        this.nameField = nameField;
+    }
+
+    public void setReferenceField(TextField referenceField) {
+        this.referenceField = referenceField;
     }
 }
